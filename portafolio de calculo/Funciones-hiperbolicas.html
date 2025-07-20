@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Funciones Hiperbólicas - Cálculo Integral</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet" />
+<style>
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: #e9f0f5; /* gris muy suave */
+    color: #1b2a41; /* azul oscuro para texto */
+}
+
+header {
+    background: #145374; /* azul fuerte */
+    color: #d7e8ef; /* azul claro */
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.contenido {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background: #f7fafc; /* blanco con toque azul */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(20,83,116,0.15); /* sombra azul suave */
+    color: #1b2a41;
+}
+
+.contenido h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #0f3d5a; /* azul medio */
+    border-bottom: 3px solid #47a6b8; /* azul verdoso */
+    padding-bottom: 0.5rem;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin-top: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(71,166,184,0.5);
+}
+
+.video-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #147a85; /* azul verdoso */
+    margin-top: 2rem;
+}
+
+a {
+    color: #145374;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    color: #47a6b8;
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #145374;
+    color: #d7e8ef;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+}
+
+.boton-regresar {
+    display: inline-block;
+    margin: 2rem 0;
+    padding: 0.8rem 1.5rem;
+    background-color: #0f3d5a;
+    color: #d7e8ef;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.boton-regresar:hover {
+    background-color: #47a6b8;
+    color: #0f3d5a;
+}
+
+/* Responsive */
+@media(max-width: 768px){
+    .contenido {
+        margin: 1rem;
+        padding: 1rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Funciones Hiperbólicas</h1>
+</header>
+
+<div class="contenido">
+    <h2>¿Qué son las funciones hiperbólicas?</h2>
+    <p>Las funciones hiperbólicas, como <strong>sinh(x)</strong> y <strong>cosh(x)</strong>, son análogas a las funciones trigonométricas pero basadas en exponentes reales. En cálculo integral, aparecen en integrales con productos o potencias, y se resuelven con propiedades similares a las trigonométricas.</p>
+    <p>Por ejemplo:</p>
+    <p>∫ sinh(x) · cosh(x) dx</p>
+    <p>∫ sinh<sup>n</sup>(x) · cosh<sup>m</sup>(x) dx</p>
+    <p>Estas integrales se pueden resolver usando identidades hiperbólicas y sustitución.</p>
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/9wkWfVjC9Gc" allowfullscreen></iframe>
+    </div>
+
+    <h3>Puntos importantes</h3>
+    <p>Si una potencia es <strong>impar</strong>, se separa un factor y se usa la identidad:</p>
+    <p>sinh²(x) = cosh²(x) - 1,<br>
+    cosh²(x) = 1 + sinh²(x).</p>
+
+    <p>Si ambas potencias son <strong>pares</strong>, se usan las fórmulas de doble ángulo:</p>
+    <p>sinh²(x) = (cosh(2x) - 1) / 2,<br>
+    cosh²(x) = (cosh(2x) + 1) / 2.</p>
+</div>
+
+<a href="index .html" class="boton-regresar">⬅️ Regresar al index </a>
+
+<footer>
+    <p>&copy; index  de Cálculo Integral</p>
+</footer>
+
+</body>
+</html>
+

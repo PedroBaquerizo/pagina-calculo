@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Productos de Senos y Cosenos</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet" />
+<style>
+body, html {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: #000; /* Fondo negro para mejor contraste con partículas */
+    color: #a8d5a3; /* Verde claro para texto */
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    z-index: 1;
+}
+
+/* Fondo animado */
+#fondo-particulas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: #000;
+  z-index: 0;
+  overflow: hidden;
+}
+
+#fondo-particulas canvas {
+  display: block;
+}
+
+header {
+    background: #111; /* Fondo oscuro para header */
+    color: #a8d5a3;
+    text-align: center;
+    padding: 3rem 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.contenido {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background: #111; /* fondo oscuro */
+    color: #a8d5a3;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #478d4a;
+    position: relative;
+    z-index: 2;
+}
+
+.contenido h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #78b178;
+    border-bottom: 3px solid #478d4a;
+    padding-bottom: 0.5rem;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin-top: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #78b178;
+}
+
+.video-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+h3 {
+    color: #78b178;
+    margin-top: 2rem;
+}
+
+a {
+    color: #a8d5a3;
+}
+
+a:hover {
+    color: #78b178;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #111;
+    color: #a8d5a3;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 2;
+}
+
+.boton-regresar {
+    display: inline-block;
+    margin: 2rem 0;
+    padding: 0.8rem 1.5rem;
+    background-color: #2f2f2f;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    transition: background 0.3s;
+    position: relative;
+    z-index: 2;
+}
+
+.boton-regresar:hover {
+    background-color: #478d4a;
+}
+
+/* Responsive */
+@media(max-width: 768px){
+    .contenido {
+        margin: 1rem;
+        padding: 1rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<div id="fondo-particulas"></div>
+
+<header>
+    <h1>Productos de Senos y Cosenos</h1>
+</header>
+
+<div class="contenido">
+    <h2>¿Qué es el producto seno y coseno?</h2>
+    <p>Cuando hablamos de productos seno y coseno en cálculo integral, nos referimos a las integrales que contienen el producto de funciones trigonométricas, como por ejemplo:</p>
+    <p>∫ sin(x) · cos(x) dx</p>
+    <p>∫ sinⁿ(x) · cosᵐ(x) dx</p>
+    <p>Estas integrales se resuelven usando identidades trigonométricas y algunas técnicas especiales, como sustitución o fórmulas de reducción.</p>
+
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/WcY8X21to68" allowfullscreen></iframe>
+    </div>
+
+    <h3>Puntos importantes</h3>
+    <p>Si una potencia es <strong>impar</strong>, se separa un factor y se usa la identidad:<br>
+    sin²(x) = 1 − cos²(x),<br>
+    cos²(x) = 1 − sin²(x).</p>
+    <p>Si ambas potencias son <strong>pares</strong>, se usan las <strong>fórmulas de ángulo doble</strong>:<br>
+    sin²(x) = (1 − cos(2x)) / 2,<br>
+    cos²(x) = (1 + cos(2x)) / 2.</p>
+</div>
+
+<a href="index .html" class="boton-regresar">⬅️ Regresar al index </a>
+
+<footer>
+    <p>&copy; index  de Cálculo Integral</p>
+</footer>
+
+<script>
+  const container = document.getElementById('fondo-particulas');
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  container.appendChild(canvas);
+
+  let width, height;
+  function resize() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  const colors = ['#00FF00', '#FFFFFF', '#0B3D0B']; // verde brillante, blanco, verde oscuro
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.size = 1 + Math.random() * 3;
+      this.speedX = (Math.random() - 0.5) * 1.8;
+      this.speedY = (Math.random() - 0.5) * 1.8;
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+      this.opacity = 0.3 + Math.random() * 0.7;
+      this.opacityChange = (Math.random() * 0.02) + 0.005;
+      this.opacityDirection = Math.random() > 0.5 ? 1 : -1;
+    }
+
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+
+      if (this.x < 0 || this.x > width) this.speedX *= -1;
+      if (this.y < 0 || this.y > height) this.speedY *= -1;
+
+      this.opacity += this.opacityChange * this.opacityDirection;
+      if (this.opacity > 1) {
+        this.opacity = 1;
+        this.opacityDirection = -1;
+      } else if (this.opacity < 0.3) {
+        this.opacity = 0.3;
+        this.opacityDirection = 1;
+      }
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.fillStyle = this.color;
+      ctx.globalAlpha = this.opacity;
+      ctx.shadowColor = this.color;
+      ctx.shadowBlur = 8;
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      ctx.shadowBlur = 0;
+    }
+  }
+
+  const particlesCount = 70;
+  const particles = [];
+
+  for(let i = 0; i < particlesCount; i++) {
+    particles.push(new Particle());
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+
+    for(let i = 0; i < particlesCount; i++) {
+      for(let j = i + 1; j < particlesCount; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if(dist < 140) {
+          ctx.beginPath();
+          let alpha = (1 - dist / 140) * 0.6;
+          let gradient = ctx.createLinearGradient(particles[i].x, particles[i].y, particles[j].x, particles[j].y);
+          gradient.addColorStop(0, `rgba(0,255,0,${alpha})`);
+          gradient.addColorStop(0.5, `rgba(255,255,255,${alpha})`);
+          gradient.addColorStop(1, `rgba(0,255,0,${alpha})`);
+          ctx.strokeStyle = gradient;
+          ctx.lineWidth = 1.3;
+          ctx.shadowColor = 'rgba(0,255,0,0.7)';
+          ctx.shadowBlur = 4;
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+          ctx.shadowBlur = 0;
+        }
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
+</body>
+</html>

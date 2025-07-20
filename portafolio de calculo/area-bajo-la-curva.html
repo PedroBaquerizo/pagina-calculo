@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Área bajo la curva - Cálculo Integral</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet" />
+<style>
+@keyframes lightningMove {
+  0% {
+    background-position: 0 0, 50% 50%;
+  }
+  100% {
+    background-position: 100% 0, 50% 50%;
+  }
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: #121212;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(0,255,0,0.15) 0, rgba(0,255,0,0.15) 2px, transparent 2px, transparent 8px),
+      repeating-linear-gradient(-45deg, rgba(0,255,0,0.15) 0, rgba(0,255,0,0.15) 2px, transparent 2px, transparent 8px);
+    background-size: 200% 100%, 200% 100%;
+    background-repeat: repeat;
+    animation: lightningMove 10s linear infinite;
+    color: #b9f6ca;
+    min-height: 100vh;
+}
+
+header {
+    background: #0d0d0d;
+    color: #a0f0b0;
+    text-align: center;
+    padding: 3rem 1rem;
+    box-shadow: 0 2px 10px rgba(0,255,0,0.7);
+}
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 8px #00ff00;
+}
+
+.contenido {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background: #1b1b1b;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,255,0,0.4);
+    color: #d8ffdc;
+}
+
+.contenido h2, .contenido h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #7fffbf;
+    border-bottom: 3px solid #00cc44;
+    padding-bottom: 0.5rem;
+}
+
+ul {
+    padding-left: 1.2rem;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin-top: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px #00ff00aa;
+    border: 1px solid #00cc44;
+}
+
+.video-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: drop-shadow(0 0 6px #00ff00);
+}
+
+.boton-regresar {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #004400;
+    color: #b9f6ca;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 8px #00ff00cc;
+}
+
+.boton-regresar:hover {
+    background-color: #00aa00;
+    color: #eaffea;
+    box-shadow: 0 0 20px #00ff00ee;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #0d0d0d;
+    color: #66cc66;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 10px rgba(0,255,0,0.6);
+}
+
+/* Responsive */
+@media(max-width: 768px){
+    .contenido {
+        margin: 1rem;
+        padding: 1rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Área bajo la curva</h1>
+</header>
+
+<div class="contenido">
+    <h2>¿Qué es el área bajo la curva?</h2>
+    <p>El área bajo la curva es una de las aplicaciones más importantes del cálculo integral. Esta herramienta permite calcular la superficie comprendida entre la gráfica de una función y el eje X dentro de un intervalo específico.</p>
+    <p>Matemáticamente, se determina utilizando la <strong>integral definida</strong>, la cual suma infinitos rectángulos de anchura infinitesimal para obtener un área exacta.</p>
+    <p>Su utilidad es fundamental en distintas ramas como la física, ingeniería, economía y estadística para calcular distancias recorridas, trabajo realizado, acumulación de cantidades o probabilidades.</p>
+
+    <h2>Video Explicativo</h2>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/5ZrfmQEVMjk" allowfullscreen></iframe>
+    </div>
+
+    <h3>Puntos importantes</h3>
+    <ul>
+        <li>Se utiliza la integral definida para calcular áreas bajo una función f(x) entre dos puntos a y b.</li>
+        <li>El área se expresa como <strong>∫<sub>a</sub><sup>b</sup> f(x) dx</strong>.</li>
+        <li>Si la función es negativa en algún tramo, el área bajo el eje X se resta (puede ser necesario calcular el valor absoluto).</li>
+        <li>Es aplicable en situaciones prácticas como el cálculo de distancias, consumo de energía o producción acumulada.</li>
+        <li>Gráficamente, representa el espacio entre la curva y el eje X en un intervalo.</li>
+        <li>Puede usarse en combinación con otras técnicas de integración según la complejidad de la función.</li>
+    </ul>
+</div>
+
+<a href="index .html" class="boton-regresar">⬅️ Regresar al index </a>
+<footer>
+    <p>&copy;index  de Cálculo Integral</p>
+</footer>
+
+</body>
+</html>
+
